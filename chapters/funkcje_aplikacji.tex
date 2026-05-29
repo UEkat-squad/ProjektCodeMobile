@@ -1,0 +1,65 @@
+\chapter{Szczegółowy opis funkcji aplikacji}
+
+Nasza aplikacja jest z założenia minimalna i elegancka dlatego taką właśnie ją zaprojektowaliśmy. Podczas wstępnego projektowania (rysunek \ref{fig:init-proj}) nie zajmowaliśmy się takimi szczegółami jak konkretna czcionka czy konkretny kolor interfejsu. Ale kiedy doszliśmy już do wstępnego projektu nadszedł czas żeby dopracować szczegóły zaczynając od czcionki.
+
+\section{Dobór czcionki}
+
+Jako główną czcionkę naszej aplikacji postanowiliśmy zastosować znaną otwarto źródłową czcionkę Intern (\url{https://github.com/rsms/inter}) jest to jedna z najlepszych prostych czcionek na rynku stworzona z pasją i delikatnością wykorzystywana między innymi przez takie projekty jak GNOME, Gitlab czy Unity (silnik do tworzenia gier).
+\newline\newline
+Natomiast jako czcionkę edytora tekstu domyślnie wykorzystujemy JetBrains Mono (\url{https://www.jetbrains.com/lp/mono/}) jedną z najpopularniejszych czcionek dla programistów. Czcionki mono albo monospaced są to specjalne czcionki często wykorzystywane do wyświetlania kodu, ponieważ charakteryzują się one tym że każdy znak w nich zawarty ma taką samą szerokość co pozwala edytorom jak i programistą wyrównywać do siebie tekst i tworzyć ładne ascii art'y bez potrzeby martwienia się szerokością konkretnego znaku. JetBrains Mono posiada również dodatkową cechę która czyni ją często wybieraną czcionką a mianowicie zamiana kombinacji znaków takich jak == lub != w jeden dłuższy znak po szczegóły polecam zapoznać się z stroną serwującą czcionkę.
+
+\section{Ekran główny}
+
+\MyFigure[0.5\textwidth]{images/ekrany/glowny.png}{Ekran główny aplikacji}{fig:main_screen}{\parencite{makieta}}
+Pierwszym ekranem który zobaczą użytkownicy jest ekran główny (rysunek \ref{fig:main_screen}), jego zadaniem jest powitanie użytkownika w aplikacji oraz pozwolenie mu przejść do projektu nad którym chciał by pracować.
+\newline\newline
+W pierwszej sekcji ekranu znajdują się 2 guziki pozwalając użytkownikowi utworzyć nowy projekt lub dodać/zaimportować już istniejący. W następnej sekcji natomiast mamy listę wszystkich ostatnio otwartych projektów co pozwala użytkownikowi na szybki dostęp do projektów które już zaczął. Wybór któregoś z tych projektów przenosi użytkownika bezpośrednio do edytora kodu.
+\newline\newline
+Dodatkowo na ekranie głównym znajdują się 2 dodatkowe ikonu, jedna to logo Ko-Fi (\url{https://ko-fi.com/}) w prawym górnym rogu przenoszące użytkownika na stronę pozwalającą mu przekazać darowiznę na projekt. druga to ikon ustawień w prawym dolnym rogu to ikona ustawień która przenosi użytkownika do ekranu ustawień.
+
+\MyFigure[0.5\textwidth]{images/ekrany/nowy_projekt.png}{Ekran dodawania nowego projektu}{fig:new_proj_screen}{\parencite{makieta}}
+Po kliknięciu przycisku nowego projektu użytkownikowi pokazywany jest jumper (rysunek \ref{fig:new_proj_screen}) z możliwością wpisania nazwy projektu oraz jego utworzenia. Po podaniu nazwy i kliknięciu utwórz użytkownik zostaje przeniesiony do edytora kodu.
+
+\MyFigure[0.5\textwidth]{images/ekrany/import.png}{Ekran popup pozwalający importować projekt}{fig:import_screen}{\parencite{makieta}}
+Wybranie opcji importowania projektu zaprezentuje użytkownikowi wybór (rysunek \ref{fig:import_screen}) między dodaniem projektu z plików lokalnych lub wykorzystanie istniejącego repozytorium Git. 
+\newline\newline
+Wybranie opcji dodania z lokalnych plików powinno przenieść użytkownika do systemowej aplikacji pozwalającej na wybranie folderu. Po wybraniu odpowiedniego folderu użytkownik zostaje przeniesiony do edytora kodu. Wygląd tego meny zależy od wariantu oraz wersji systemu ze względu na to nie został on uwzględniony w naszej makiecie a wybranie tej opcji skutkuje przeniesieniem do edytora kodu.
+
+\MyFigure[0.5\textwidth]{images/ekrany/import_git.png}{Ekran pozwalający importować projekt git}{fig:import_git_screen}{\parencite{makieta}}
+Jeśli użytkownik zdecyduje się na importowanie istniejącego repozytorium git, zostanie mu wyświetlony jumper z możliwością podanie adresu repozytorium git oraz wybranie konta które ma zostać wykorzystane do pobrania danych z repozytorium. Konto git może zostać dodane do aplikacji z poziomu ustawień.
+
+\section{Ustawienia}
+\MyFigure[0.5\textwidth]{images/ekrany/ustawienia.png}{Ekran ustawień}{fig:settings_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/ustawienia_konto.png}{Ekran ustawień popup pozwalający na wybór konta}{fig:settings_screen_acc}{\parencite{makieta}}
+
+\section{Edytor kodu}
+\MyFigure[0.5\textwidth]{images/ekrany/kod.png}{Ekran edytora kodu}{fig:code_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/kod_jb.png}{Ekran edytora kodu z włączonym trybem obsługi jedną ręką}{fig:code_jb_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/kod_doc.png}{Ekran dokumentacji edytora kodu}{fig:code_doc_screen}{\parencite{makieta}}
+
+
+\MyFigure[0.5\textwidth]{images/ekrany/pliki.png}{Ekran plików edytora kodu}{fig:files_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/bledy.png}{Ekran błędów edytora kodu}{fig:error_screen}{\parencite{makieta}}
+
+\subsection{Dodawanie plików i folderów}
+\MyFigure[0.5\textwidth]{images/ekrany/pliki_new.png}{Popup pozwalający na dodanie pliku lub folderu}{fig:files_new_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/pliki_new_file.png}{Jumper pozwalający na podanie nazwy nowego pliku}{fig:files_new_file_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/pliki_new_folder.png}{Jumper pozwalający na podanie nazwy nowego folderu}{fig:files_new_folder_screen}{\parencite{makieta}}
+
+
+\section{Dodatkowe ekrany}
+
+\MyFigure[0.5\textwidth]{images/ekrany/git.png}{Ekran git}{fig:git_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/podglad.png}{Ekran podglądu}{fig:preview_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/pomoc.png}{Ekran pomocy}{fig:help_screen}{\parencite{makieta}}
+
+\MyFigure[0.5\textwidth]{images/ekrany/pomoc_doc.png}{Ekran dokumentacja pomocy}{fig:help_doc_screen}{\parencite{makieta}}
+%do zrobienia dodać pozostałe zdjęcia i inne takie

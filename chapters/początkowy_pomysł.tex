@@ -1,0 +1,49 @@
+\chapter{Pomysł na Aplikacje}
+
+Aplikacja mobilna „CodeMobile” to narzędzie stworzone z myślą o programistach frontendowych, którzy cenią sobie możliwość pracy z dowolnego miejsca na świecie. Nazwa aplikacji stanowi proste połączenie słów "Code" (kod) oraz "Mobile" (mobilny), co bezpośrednio oddaje jej główny cel: dostarczenie zaawansowanych funkcji znanych z desktopowych środowisk IDE w wygodnej, przenośnej formie.
+\section{Logo}
+\MyFigure[0.5\textwidth]{images/favicon.png}{Logo apilkacji}{fig:icon}{Opracowanie własne}
+Ikona aplikacji \ref{fig:icon} nawiązuje kolorystyką do popularnego edytora kodu visual studio code, stworzonego przez Microslop przed erą AI. Ikona próbuje w ten sposób komunikować główny cel aplikacji którym jest bycie solidnym edytorem kodu na urządzenia mobilne.
+\newline\newline
+W odróżnieniu jednak do VSC aplikacja stara się być prosta a jednocześnie dostarczać potężne rozwiązania pomagające w tworzeniu stron internetowych w językach HTML, CSS oraz Javascript.
+
+\section{Podstawowe funkcje}
+Celem naszego projektu było stworzenie aplikacji z której sami chcielibyśmy korzystań. Jako studenci informatyki mamy już doświadczenie z programowaniem dlatego wiemy jakie funkcje faktycznie mogą nam się przydać.
+\newline\newline
+Mamy spore doświadczenie z programowaniem zarówno na komputerach tu możemy się pochwalić stroną internetową \url{https://iaml.uk/} oraz kontem github \url{https://github.com/thenameisluk} . W tym paroma osobistymi projektami takimi jak nasz makieta którą pisałem ręcznie bez użycia AI.
+\newline\newline
+Również makieta naszej aplikacji została napisana w czystym html'u, css'ie oraz javascript'cie również bez wykorzystania AI czyli dokładnie tej samej technologi w której programowanie aplikacja ma obsługiwać.
+\newline\newline
+Na urządzeniach mobilnych używałem między innymi Scriptable (\url{https://scriptable.app/}) oraz Codeapp (\url{https://apps.apple.com/au/app/code-app/id1512938504}) w którym stworzyłem między innymi taką prostą strone internetową \url{https://thenameisluk.github.io/Skill-Issue/} .
+\newline\newline
+Dlatego ze względu na nasze doświadczenie w tej dziedzinie uznaliśmy że posiadamy kompetencje żeby zaprojektować aplikacje do programowania z której faktyczni ludzie chcieli by korzystać. Bez reklam oraz płatności żeby pozwolić ludziom stworzyć coś ciekawego bez potrzeby płacenia lub korzystanie z słabszych aplikacji które są na rynku.
+\newline\newline
+Skompilowaliśmy więc listę funkcji które nasza aplikacja powinna posiadać żeby być użyteczna. Nie są to wszystkie funkcje które chcielibyśmy dodać ale dodanie wszystkiego co przyszło by nam do głowy sprawiło by że nasza aplikacja nie była by prosta w obsłudze wybraliśmy więc odpowiednią ilość funkcji żeby nie przesycić aplikacji a jednocześnie pozwolić użytkownikowi zrobić wszystko czego będzie potrzebować.
+\subsection{Lsp}
+Tak zwany language server provider \parencite{lsp} to protokół stworzony przez Microslop we współpracy z Red Hat oraz Codenvy. Protokół pozwala na integracje serwera językowego z dowolnym edytorem kodu wspierającym protokół, w ten sposób każdy nowy edytor kodu nie musi wynajdować koła na nowo dodając wsparcie dla pojedynczego języka.
+\newline\newline
+Serwer językowy może dostarczać klientowi takie funkcje jak wykrywanie błędów w kodzie, rodzaje tokenów w kodzie (znane jako syntax highlighting) oraz możliwe uzupełnienia kodu w pozycji kursora. Dzięki temu nasza aplikacja powinna być w stanie wyłapać błędy w kodzie bez potrzeby jego uruchamiania oraz umożliwić inteligentne uzupełniania kodu co jest naszą kolejną funkcją.
+\subsection{Automatyczne uzupełnianie}
+\MyFigure[0.5\textwidth]{images/konkurencja/scriptable.png}{Zrzut ekranu z aplikacji Sriptable}{fig:scriptable}{\url{https://www.youtube.com/watch?v=CjTzhPxfz8Q}}
+Scriptable to jedna z najbardziej nie doczenianych aplikacji na system IOS, jest ona prosta (zakładając że użytkownik zna język Javascript) a jednocześnie pozwala zrobić naprawde niesamowite rzeczy wykorzystówjąc api systemu IOS takie jak tworzenie widgetów czy złożonych powiadomień.
+\newline\newline
+Jednak funkcją która najbardziej wpadła mi w oko w tej aplikacji jest możliwość automatycznego uzupełniania kodu w mobilnym stylu uzupełniania tekstu. Aplikacja ta zawsze pokazuje dostępne uzupełnienia w jednym miejscu na ekranie \ref{fig:scriptable}, tuż nad klawiaturą w odróżnieniu do textastic, androidIDE czy spck które uzupełnianie kodu oferują w miejscu kursora.
+\newline\newline
+Rozwiązanie to jest o wiele bardziej przyjemne i przyjazne dla użytkowników już przyzwyczajonych do korzystania z automatycznego uzupełniania w klawiaturze mobilne i wywołuje wrażenia aplikacji napisaną z myślą mobile first zabiast desktop first.
+Naszym celem nie jest dostarczenie tradycyjnego edytora kodu na platforme mobilną dla nas najważniejsze jest żeby apilkacja była ergonomiczna i wygodna na platforme na którą ją wypuszczamy biorąc pod uwage ograniczenia jak i zalety plaformy.
+\subsection{Git}
+Git to najpopularniejszy system kontroli wersji na pisany przez Linus'a Torvalds'a twórce systemu Linux. W odróżnieniu do prostych użytkowników systemów Windows czy Mac OS, Linus wiedział że system kontroli wersji to jedno z najważniejszych narządzi podczas programowania dlatego ponieważ w momencie tworzenia pierwszych wersji jego systemu żadne narządzie na rynku nie odpowiadało jego wymaganiom Linus stworzył własne narzędzie Git.
+\newline\newline
+Od tego czasu git stał się jednym z najważniejszych narzędzi prawdziwych informatyków na całym świecie, platformy takie jak github, gitlab oraz gitea to głównie hosting'i git'ów ale również w pewnym sensie media społecznościowe dla deweloperów, pozwalające im dzielić się swoim kodem, rozwiązywać problemy jak i współpracować.
+\newline\newline
+W obecnym świecie git jest bardzo potężnym narzędziem i tworzenia projektów bez niego nie jest nie możliwe ułatwia nam monitorowanie progresu naszego kodu oraz zarządzanie nim. Choć nasza aplikacja nie będzie udostępniała zaawansowanych funkcji git'a (było by to nie możliwe jeśli chcemy zachować prostotę naszego interfejsu). Chcemy udostępnić naszym użytkownikom podstawowe funkcje git'a (to jest commit, push oraz fetch)
+\subsection{Dokumentacja}
+Dokumentacja to jedno z najważniejszych źródeł do których można mieć dostęp podczas programowania. Jest to dokument opisujący dostępne dla programisty funkcje oraz ich działanie. Choć słynny Rosyjski programista znany pod pseudonimem Tsoding z dostępem do prywatnej wersji beta do nie wypuszczonego jeszcze języka JAI uważa że czytanie kodu źródłowego języka jest o wiele lepszą techniką uczenia się języka lub szukanie funkcji których chce się użyć.
+\newline\newline
+Zmuszenie naszych użytkowników do czyta czytanie kodu źródłowego V8 lub Spidermonkey (silników Javascript napisanych w większości w C++) mogło by się skończyć ich utratą. Dlatego mimo rady tak istotnego programisty nasza aplikacja będzie zawierałą dokumentacje dostępnych funkcji i klas w języku Javascript (w ramach przeglądarki internetowej) oraz właściwości css.
+
+\section{Funkcje których nie będzie}
+\subsection{Terminal}
+Choć mocna nad tym ubolewam terminal nie będzie częścią pierwszej wersji naszej apikacji, ponieważ nasza aplikacja celuje w prostotę a niektórzy nasi użytkownicy mogą być nie zaznajomieni z konceptem terminala nie chcieli byśmy ich zastraszyć tak skomplikowaną funkcją.
+\newline\newline
+Mimo że terminal mógł by pozwolić użytkownikom wykorzystać pełnie funkcji programu git było by to mniej intuicyjne niż używanie naszego interfejsu graficznego, nasza aplikacja skierowana jest w kierunku programowania stron internetowych a jedyną funkcją która mogła by wykorzystywać terminal przy tym zastosowaniu jest właśnie git.

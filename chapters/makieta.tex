@@ -1,0 +1,141 @@
+\chapter{Makieta}
+Kod źródłowy makiety \parencite{makieta} pod adresem \parencite{repo}. Została ona stworzona w czystym html'u, css'ie oraz javascript'cie bez używania żadnych frameworków ani AI w celu zachowania pełnej kontroli nad wyglądem makiety oraz animacjami.
+
+
+
+\section{Symulacja przeciągania palcem}
+Makieta pozwala na wykonywanie gestów przeciągnięcia myszką których obsługa została zaimplementowana w minimalnej funkcji.
+
+
+\begin{lstlisting}[language=javascript, caption={Kod odpowiadający za gest przeciągania.}, label={code:przeciagniecie}]
+function attachSwipeHandler(el=document.getElementById(""),fn=()=>{},right=true,corner=5,sens=3,updown=false){
+    var lastP = 0;
+    var eligible = false;
+    el.addEventListener("mousedown" ,(/** @type {MouseEvent} **/ev)=>{
+        if(lock)
+            return;
+        
+        let p;
+        if(!updown)
+            p = ev.layerX*100/el.getBoundingClientRect().width;
+        else
+            p = ev.layerY*100/el.getBoundingClientRect().height;
+
+        if(!right) p = 100-p;
+
+        // console.log("md "+el.tagName+" "+Math.round(p));
+
+        if(p<corner){
+            // debugger
+            console.log("eligible "+p+" < "+corner)
+            eligible=true;
+            lastP = p;
+        }else eligible=false
+        
+    });
+    el.addEventListener("mousemove" ,(/** @type {MouseEvent} **/ev)=>{
+        if(lock)
+            return;
+        
+        if(!updown)
+            p = ev.layerX*100/el.getBoundingClientRect().width;
+        else
+            p = ev.layerY*100/el.getBoundingClientRect().height;
+
+        if(!right) p = 100-p;
+        
+        // console.log("mm "+el.tagName+" "+Math.round(p));
+
+        if(eligible){
+            if(lastP+sens<=p){
+                fn();
+                eligible = false;
+                console.log("triggered");
+            }
+        }
+    });
+    el.addEventListener("mouseup" ,(/** @type {MouseEvent} **/ev)=>{
+        lock = false;
+        // console.log("mu "+el.tagName+" ");
+        eligible = false;
+    });
+}
+\end{lstlisting}
+
+Jak widać w kodzie \ref{code:przeciagniecie} funkcja działa wyłącznie dla myszki ponieważ w dla przeglądarki internetowej dotyk ekranu jest osobnym zbiorem eventów (to jest "touchstart" zamiast "mousedown") który wymaga wsparcia dla tak zwanego multitouch (po polsku wielo dotyku) co utrudnia prostą implementacje. Z tego powodu na laptopach z ekranami dotykowymi oraz na telefonach symulacja przeciągnięcia nie działa.
+\newline\newline
+Funkcje można wykorzystać do chowania slider'ów oraz jumper'ów zamiast klikania w przyciemnioną część ekranu. Dodatkowo pozwala również ona na przeciągnięcie od boku ekranu w edytorze kodu żeby wysunąć slider (rysunek \ref{fig:code_screen}) z listą plików w projekcie (rysunek \ref{fig:code_doc_screen}) bez potrzeby klikania przycisku hamburgera w górnym rogu ekranu.
+
+
+
+\section{Symulacja wibracji urządzenia}
+Makieta pozwala na symulacje wibracji telefonu po przez potrząśnięcie ekranu w momencie próby zatwierdzenia akcji bez wpisania informacji w polu tekstowym, funkcja ta jest wykorzystywana przy tworzeniu nowego projektu (rysunek \ref{fig:new_proj_screen}), dodawaniu repozytorium git (rysunek \ref{fig:import_git_screen}) oraz przy tworzeniu commit'a (rysunek \ref{fig:git_screen})
+
+Kod który za to odpowiada jest jeszcze prostszy niż kot odpowiadający za przeciąganie.
+
+\begin{lstlisting}[language=javascript, caption={Kod odpowiadający za wywoływania wibracji dodawanie czerwonej ramki do pustych pól.}, label={code:shake}]
+function validateText(/**@type {Element}**/inp,fn=()=>{}){
+    /**@type {string}**/
+    let txt = inp.value
+    
+    if(txt==""){
+        addTag(inp,"inp_wrong");
+        addTag(app_screen,"shake")
+        setTimeout(()=>{rmTag(app_screen,"shake")},400)
+    }else{
+        rmTag(inp,"inp_wrong");
+        fn();
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=css, caption={Kod css odpowiadający za trzęsienie.}, label={code:shake-css}]
+@keyframes shakeAnimation {
+  from {transform: translate(-1vh,0);}
+  to {  transform: translate(1vh,0);}
+}
+
+.shake{
+  animation-name: shakeAnimation;
+  animation-duration: 100ms;
+  animation-iteration-count: infinite;
+}
+\end{lstlisting}
+
+\section{Symulacja przytrzymania elementu}
+Makieta posiada również możliwość symulacji przytrzymania palcem elementu po przez kliknięcie i przytrzymanie klawisza myszki, jeśli klawisz zostanie podniesiony lub usunięty z guzika przed upływem odpowiedniej ilości czasu akcja zostanie anulowana.
+
+Kod odpowiadający za tą funkcje załączam poniżej.
+
+\begin{lstlisting}[language=javascript, caption={Kod odpowiadający obsługę przytrzymanie klawiszu myszki na elemencie.}, label={code:hold}]
+function attachHoldHandler(el=document.getElementById(""),fn,wait=500){//500 milisekund
+    var clicked = false;
+    var id = 0;
+    el.addEventListener("mousedown" ,(/** @type {MouseEvent} **/ev)=>{
+        let remid = id;
+        clicked = true;
+        setTimeout(()=>{
+            console.log(remid+" x "+id)
+            if(clicked&&id==remid){
+                fn()
+            }
+        },wait)
+    })
+    el.addEventListener("mouseleave",()=>{
+        if(clicked){
+            id++;
+            clicked = false;
+        }
+    })
+    el.addEventListener("mouseup",()=>{
+        if(clicked){
+            id++;
+            clicked = false;
+        }
+    })
+}
+\end{lstlisting}
+
+Jak widać w kodzie \ref{code:hold} przytrzymanie również można wywołać jedynie z poziomu myszki.
+
+

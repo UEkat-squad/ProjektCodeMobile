@@ -1,0 +1,137 @@
+\chapter{Kontrast}
+Kontrast to ważny temat dla naszej aplikacji, ponieważ cichlibyśmy żeby była ona dostępna dla jak największej ilości osób. Dlatego staramy się żeby tekst wyświetlany na ekranie był jak najlepiej widoczny.
+\section{Ogólny kontrast}
+Tła wewnątrz aplikacji maję 3 główne wartości (rysunek \ref{fig:bgpalet})
+
+\begin{itemize}
+    \item \textbf{Najciemniejszy} \#1e1e1e
+    \item \textbf{Średnio ciemny} \#2f2f2f
+    \item \textbf{Najjaśniejszy} \#585858
+\end{itemize}
+
+\MyFigure[0.5\textwidth]{images/kontrast/palataKolorówTła.png}{Paleta kolorów tła}{fig:bgpalet}{Ręcznie dobrane kolory}
+
+Biały tekst na najjaśniejszym z tych kolorów posiada wartość 7.11 (rysunek \ref{fig:brightest}). Co spełnia zarówna wymagania AA jak i AAA.
+
+\MyFigure[0.5\textwidth]{images/kontrast/brightest.png}{Biały napis na najjaśniejszym kolorze tła}{fig:brightest}{\url{https://colourcontrast.cc/?background=585858\&foreground=ffffff}}
+Na ekranie głównym oraz w paru innych miejscach możemy róznież za obserwować tekst oraz guziki koloru niebieskiego (\#4b81ff). Ten kolor pojawia się jedynie na najciemniejszym tle a jego kontrast w tej sytuacji wynosi 4.67 (rysunek \ref{fig:bluetest}) co jest dopuszczalne w AA oraz AAA dla dużego tekstu.
+\MyFigure[0.5\textwidth]{images/kontrast/bluetest.png}{Niebieski na najciemniejszym kolorze tła}{fig:bluetest}{\url{https://colourcontrast.cc/?background=585858\&foreground=ffffff}}
+
+Ostatnią kombinacją kolorów w naszej aplikacji są niebierskie przyciuski z białymi napisami lub symbolami. Głównie w jumper'ach oraz na ekranie do zarządzania git'em.
+\MyFigure[0.5\textwidth]{images/elementy/bluebutton.png}{Niebieski guzik na bialym}{fig:bluebutton}{\url{https://colourcontrast.cc/?background=325fc7\&foreground=ffffff}}
+
+Ich kontrast wynosi 5.84 więc również jest git dla użych napisóœ zarówno w AAA jak i AA.
+\MyFigure[0.5\textwidth]{images/kontrast/bluebutton.png}{Biały napis na niebieskim tle}{fig:bluebuttonk}{Ręcznie dobrane kolory}
+\section{Kontrast Kodu}
+Nasza aplikacja oferuje 4 schematy kolorów w edytorze kodu wszystkie prezentowane na tle \#1e1e1e. Schematy można wybierać z poziomu ustawień aplikacji. Każdy schemat ma swoje zastosowania i może być użyty przez różnych ludzi.
+\subsection{Domyślny}
+\MyFigure[0.5\textwidth]{images/schematy/default.png}{Schemat koloru domyślny}{fig:default}{\parencite{makieta}}
+Podstawowy schemat kolorów inspirowany klasycznym motywem Dark+ w odróżnieniu do większości współczesnych motywów jest z tonowany i elegancki. Przypomina mi czasy kiedy zaczynałem moją przygodę z programowaniem.
+
+\begin{table}[ht]
+\centering
+\caption{Schemat kolorów domyślny}
+\label{tab:default}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|c|c|}
+\hline
+\textbf{Element} & \textbf{Kolor Hex} & \textbf{Kontrast} \\
+\hline
+funkcja       & \#D8DD73 & 11.52:1 \\
+operator      & \#BFBFAF & 8.96:1 \\
+słowo kluczowe & \#E161D4 & 5.45:1 \\
+zmienna       & \#8FC9EA & 9.3:1 \\
+klasa         & \#48B988 & 6.8:1 \\
+typ           & \#4795D9 & 5.21:1 \\
+string        & \#C88B72 & 5.87:1 \\
+stała         & \#9CDBF0 & 10.96:1 \\
+liczba        & \#AAC295 & 8.62:1 \\
+numer linii   & \#59B4DE & 7.15:1 \\
+\hline
+ostrzeżenie   & \#ECA25C & 7.85:1 \\
+error         & \#ED9292 & 7.24:1 \\
+\hline
+\end{tabular}
+\newline\newline
+{\raggedright\fontsize{10pt}{12pt}\selectfont\textit{Źródło: Opracowanie własne}\par}
+\end{table}
+
+\subsection{Drugi}
+\MyFigure[0.5\textwidth]{images/schematy/second.png}{Schemat koloru drugi}{fig:secong}{\parencite{makieta}}
+Drugi motyw jest nieco bardziej edżi dla buntowników, emo lub ludzi bez smaku. Jakikolwiek balans jest wyrzucony za okno w imie jaskrawych kolorów bez żadnej klasy. Ludzie używający tego motywu nie wiedzieli by co to dobry motyw gdyby usiadł im na twarzy.
+
+\begin{table}[ht]
+\centering
+\caption{Schemat kolorów drugi}
+\label{tab:alt1}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|c|c|}
+\hline
+\textbf{Element} & \textbf{Kolor Hex} & \textbf{Kontrast} \\
+\hline
+funkcja       & \#56B4E9 & 7.22:1 \\
+operator      & \#CCCCCC & 10.38:1 \\
+słowo kluczowe & \#E69F00 & 7.4:1 \\
+zmienna       & \#56B4E9 & 7.22:1 \\
+klasa         & \#009E73 & 4.87:1 \\
+typ           & \#E69F00 & 7.4:1 \\
+string        & \#F0E442 & 12.61:1 \\
+stała         & \#F0E442 & 12.61:1 \\
+liczba        & \#CC79A7 & 5.45:1 \\
+numer linii   & \#59B4DE & 7.15:1 \\
+\hline
+ostrzeżenie   & \#ECA25C & 7.85:1 \\
+error         & \#ED9292 & 7.24:1 \\
+\hline
+\end{tabular}
+\newline\newline
+{\raggedright\fontsize{10pt}{12pt}\selectfont\textit{Źródło: Opracowanie własne}\par}
+\end{table}
+
+\subsection{Daltonizm}
+\MyFigure[0.5\textwidth]{images/schematy/dalton.png}{Schemat koloru dla daltonistów}{fig:dalton}{\parencite{makieta}}
+Schemat kolorów oparty na palecie Bank Wong dla osób z daltonizmem.
+
+\begin{table}[ht]
+\centering
+\caption{Schemat kolorów dla Daltonizm}
+\label{tab:dalt}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|c|c|}
+\hline
+\textbf{Element} & \textbf{Kolor Hex} & \textbf{Kontrast} \\
+\hline
+funkcja       & \#56B4E9 & 7.22:1 \\
+operator      & \#CCCCCC & 10.38:1 \\
+słowo kluczowe & \#E69F00 & 7.4:1 \\
+zmienna       & \#80DDE0 & 10.58:1 \\
+klasa         & \#00C792 & 7.6:1 \\
+typ           & \#B8A2EC & 7.47:1 \\
+string        & \#F0E442 & 12.6:1 \\
+stała         & \#D897BB & 7.19:1 \\
+liczba        & \#F4935A & 7.27:1 \\
+numer linii   & \#AED8EF & 11:1 \\
+\hline
+ostrzeżenie   & \#FFD04D & 11.41:1 \\
+error         & \#63D5D9 & 9.56:1 \\
+\hline
+\end{tabular}
+\newline\newline
+{\raggedright\fontsize{10pt}{12pt}\selectfont\textit{Źródło: Opracowanie własne}\par}
+\end{table}
+
+\subsection{Pusty}
+\MyFigure[0.5\textwidth]{images/schematy/blank.png}{Schemat koloru pusty}{fig:blank}{\parencite{makieta}}
+Cały tekst edytora jest biały dla maksymalnego kontrastu. Dla osób z ostrymi problemami z widzeniem.
+
+\begin{table}[ht]
+\centering
+\caption{Schemat kolorów pusty}
+\label{tab:bialy}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|c|c|}
+\hline
+\textbf{Element} & \textbf{Kolor Hex} & \textbf{Kontrast} \\
+\hline
+wszystkie elementy & \#FFFFFF & 16.67:1 \\
+\hline
+\end{tabular}
+\newline\newline
+{\raggedright\fontsize{10pt}{12pt}\selectfont\textit{Źródło: Opracowanie własne}\par}
+\end{table}
