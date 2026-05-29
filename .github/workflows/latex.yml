@@ -13,8 +13,12 @@ jobs:
         with:
           root_file: main.tex
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+      - name: Prepare for Pages
+        run: |
+          mkdir public
+          mv main.pdf public/
+      
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: Dokument_PDF
-          path: main.pdf
+          path: public
