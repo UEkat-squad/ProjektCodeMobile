@@ -1,3 +1,4 @@
+% -*- TeX-master: "../main.tex" -*-
 \chapter{Pomysł na Aplikacje}
 
 Aplikacja mobilna „CodeMobile” to narzędzie stworzone z myślą o programistach frontendowych, którzy cenią sobie możliwość pracy z dowolnego miejsca na świecie. Nazwa aplikacji stanowi proste połączenie słów "Code" (kod) oraz "Mobile" (mobilny), co bezpośrednio oddaje jej główny cel: dostarczenie zaawansowanych funkcji znanych z desktopowych środowisk IDE w wygodnej, przenośnej formie.
@@ -20,6 +21,7 @@ Dlatego ze względu na nasze doświadczenie w tej dziedzinie uznaliśmy że posi
 \newline\newline
 Skompilowaliśmy więc listę funkcji które nasza aplikacja powinna posiadać żeby być użyteczna. Nie są to wszystkie funkcje które chcielibyśmy dodać ale dodanie wszystkiego co przyszło by nam do głowy sprawiło by że nasza aplikacja nie była by prosta w obsłudze wybraliśmy więc odpowiednią ilość funkcji żeby nie przesycić aplikacji a jednocześnie pozwolić użytkownikowi zrobić wszystko czego będzie potrzebować.
 \subsection{Lsp}
+\label{sub:lsp}
 Tak zwany language server provider \parencite{lsp} to protokół stworzony przez Microslop we współpracy z Red Hat oraz Codenvy. Protokół pozwala na integracje serwera językowego z dowolnym edytorem kodu wspierającym protokół, w ten sposób każdy nowy edytor kodu nie musi wynajdować koła na nowo dodając wsparcie dla pojedynczego języka.
 \newline\newline
 Serwer językowy może dostarczać klientowi takie funkcje jak wykrywanie błędów w kodzie, rodzaje tokenów w kodzie (znane jako syntax highlighting) oraz możliwe uzupełnienia kodu w pozycji kursora. Dzięki temu nasza aplikacja powinna być w stanie wyłapać błędy w kodzie bez potrzeby jego uruchamiania oraz umożliwić inteligentne uzupełniania kodu co jest naszą kolejną funkcją.
