@@ -1,4 +1,5 @@
-\chapter{Szczegółowy opis funkcji aplikacji}
+% -*- TeX-master: "../main.tex" -*-
+\chapter{Szczegółowy opis aplikacji}
 
 Nasza aplikacja jest z założenia minimalna i elegancka dlatego taką właśnie ją zaprojektowaliśmy. Podczas wstępnego projektowania (rysunek \ref{fig:init-proj}) nie zajmowaliśmy się takimi szczegółami jak konkretna czcionka czy konkretny kolor interfejsu. Ale kiedy doszliśmy już do wstępnego projektu nadszedł czas żeby dopracować szczegóły zaczynając od czcionki.
 
@@ -15,7 +16,7 @@ Pierwszym ekranem który zobaczą użytkownicy jest ekran główny (rysunek \ref
 \newline\newline
 W pierwszej sekcji ekranu znajdują się 2 guziki pozwalając użytkownikowi utworzyć nowy projekt lub dodać/zaimportować już istniejący. W następnej sekcji natomiast mamy listę wszystkich ostatnio otwartych projektów co pozwala użytkownikowi na szybki dostęp do projektów które już zaczął. Wybór któregoś z tych projektów przenosi użytkownika bezpośrednio do edytora kodu.
 \newline\newline
-Dodatkowo na ekranie głównym znajdują się 2 dodatkowe ikonu, jedna to logo Ko-Fi (\url{https://ko-fi.com/}) w prawym górnym rogu przenoszące użytkownika na stronę pozwalającą mu przekazać darowiznę na projekt. druga to ikon ustawień w prawym dolnym rogu to ikona ustawień która przenosi użytkownika do ekranu ustawień.
+Dodatkowo na ekranie głównym znajdują się 2 dodatkowe ikonu, jedna to logo Ko-Fi (\url{https://ko-fi.com/}) w prawym górnym rogu przenoszące użytkownika na stronę pozwalającą mu przekazać darowiznę na projekt. druga to ikona ustawień w prawym dolnym rogu to ikona ustawień która przenosi użytkownika do ekranu ustawień.
 
 \MyFigure[0.5\textwidth]{images/ekrany/nowy_projekt.png}{Ekran dodawania nowego projektu}{fig:new_proj_screen}{\parencite{makieta}}
 Po kliknięciu przycisku nowego projektu użytkownikowi pokazywany jest jumper (rysunek \ref{fig:new_proj_screen}) z możliwością wpisania nazwy projektu oraz jego utworzenia. Po podaniu nazwy i kliknięciu utwórz użytkownik zostaje przeniesiony do edytora kodu.
@@ -29,24 +30,48 @@ Wybranie opcji dodania z lokalnych plików powinno przenieść użytkownika do s
 Jeśli użytkownik zdecyduje się na importowanie istniejącego repozytorium git, zostanie mu wyświetlony jumper z możliwością podanie adresu repozytorium git oraz wybranie konta które ma zostać wykorzystane do pobrania danych z repozytorium. Konto git może zostać dodane do aplikacji z poziomu ustawień.
 
 \section{Ustawienia}
+\label{sec:settings}
 \MyFigure[0.5\textwidth]{images/ekrany/ustawienia.png}{Ekran ustawień}{fig:settings_screen}{\parencite{makieta}}
+Ekran ustawień (rysunek \ref{fig:settings_screen}) użytkownik może puścić klikajac strzałkę w górnym rogu ekranu. Ekran ten jest podzielony na trzy części, ustawienia edytora, ustawienia konta oraz ustatwienia dostępność. 
+\newline\newline
+W ustawiniech edytora użytkownik ma możliwość zmiany czcionki edytora oraz schematów kolorów opisanych w rozdziale \ref{sec:code_color}. Wybrany aktualnie kontrast jest zaznaczony niebieskim obramowaniem widocznym na rysunku.
+\newline\newline
+Kolejną opcją są ustawienia konta, pozwalające użytkownikowi na dodanie konta (więcej informacji na ten temat poniżej).
+\newline\newline
+Ostatnią kategorią jest kategoria dostępność, w której użytkownik może na chcile obecną uruchomić tylko jedną opcje dostępność którą jest tryb obsługi jedną ręką oraz wybrać rękę którą użytkownik będzie chciał obsługiwać aplikacja. Ta druga opcja pojawia się tylko w momęcie kiedy tryb obsługi jedną ręką jest włączony (pokazana na rysuneku \ref{fig:settings_screen}, ukryta na rysunku \ref{fig:settings_screen_acc}) żeby nie pokazywać użytkownikowi opcji która nic nie robi.
 
 \MyFigure[0.5\textwidth]{images/ekrany/ustawienia_konto.png}{Ekran ustawień popup pozwalający na wybór konta}{fig:settings_screen_acc}{\parencite{makieta}}
+\subsection{Konta serwisów git}
+Wracając do opcji dodawanie konta użytkownik dostaje możliwość wyboru między trzema hosting'ami udostępniającymi serwisy git, mimo że trzy wydaje się sporą liczbą jest to nie wiele biorąc pod uwagę że niektóre projekty wolnego oprogramowania jaki i samodzielni deweloperzy często tworzą swój własnych server git do którego nie byli by się w stanie dostać do naszej aplikacji.
+\newline\newline
+Bardziej uniwersalnym rozwiązaniem było by wykorzystanie kluczy ssh do komunikacji z serwerami które są wspierane przez wszystkie nam znane serwisy git, jednak takie rozwiązanie było by o wiele bardziej skomplikowane i mniej intuicyjne dla zwykłych użytkowników którzy nawet nie wiedzą że git to nie jest github.
+\newline\newline
+Dodatkowym problemem było by faktyczne generowanie tych kluczy i zarządzanie nimi, klucze ssh zazwyczaj są generowane z poziomu komputera a następne zamieszczane na wybranym przez użytkownika serwerze. Jednak w przypadku aplikacji mobilnej zarządzanie tymi kluczami było by mniej intuicyjne i mogło by doprowadzić do flustracji użytkowników. Dlatego na chwile obecną zostajemy przy kontach do konkretnych usług ponieważ większa część użytkowników jest przyzwyczajona do ekranów logowania i wolała by się nie zajmować kluczami.
 
 \section{Edytor kodu}
+\label{sec:code}
 \MyFigure[0.5\textwidth]{images/ekrany/kod.png}{Ekran edytora kodu}{fig:code_screen}{\parencite{makieta}}
+Ekran edytora kodu jest najważniejszym ekranem w aplikacji, właśnie na tym ekrenie użytkownik będzie spędzał najwięcej czasu kożystając z aplikacji. Jest on minimalistyczny stara się pozostawić użytkownikowi jak najwięcej miejsca na faktyczny kod jednocześnie dając mu wystarczająco dużo informacji o jego stanie i tym gdzie się znajduje.
+\newline\newline
+W górnej cząści ekranu możemy zauważyć szary pasek zawierający informacje o pliku, to jest jego nazwą, typ, liczbę błędów oraz ostrzerzeń. W tym pask z lewej strony znajduje się charakterystyczna ikona trzech pasków pozwalająca przywołać slider z listą plików projektu oraz dodatkowymi opcjami, slider może być równeż wywołany poprzez przeciągnięcie od lewej strony krawiędzi.
+\newline\newline
+Poniżej znajduje się ekran podpowiedzi pokazujący użytkownikowi możliwe uzupełnienia aktyalniew spisywanego kodu, jest on inspirowany aplikacją scriptable (rysunek \ref{fig:scriptable}) a jego zawartość jest zarządzana przez lsp (więcej informacji w podrozdziale \ref{sub:lsp}).
 
 \MyFigure[0.5\textwidth]{images/ekrany/kod_jb.png}{Ekran edytora kodu z włączonym trybem obsługi jedną ręką}{fig:code_jb_screen}{\parencite{makieta}}
+Po włączeniu trybu obsługi jedną ręką, klawiatura ekranowa telefonu użytkownika powinna zostać przesunięta (rysunek \ref{fig:code_jb_screen}) bliżej krawędzi przy której znajduje się kciuk użytkownika, ułatwiając mu pisanie.
 
 \MyFigure[0.5\textwidth]{images/ekrany/kod_doc.png}{Ekran dokumentacji edytora kodu}{fig:code_doc_screen}{\parencite{makieta}}
-
+Będąc w edytorze kodu użytkownik ma możliwość przytrzymania (więcej informacji w podrozdziale \ref{sec:hold_sym}) wbudowanych funkcji wewnątrz kodu jak i podpowiedzi auto uzupełnienia żeby uzyskać dostęp do ich dokumentacji (rysunek \ref{fig:code_doc_screen}). Dokumentacja zawierać nazwę elemntu, jego typ oraz którki opis. Dokumentacja będzie dostępna dla użytkownika również w trybie offline ze względu na to że nasza aplikacja nie ma powodów żeby działać bez internetu a nasz zespół nie chce iść drogą aplikacji które odmawiają uruchomienia w momędzie kiedy urządzenie nie ma dostępu do sieci.
 
 \MyFigure[0.5\textwidth]{images/ekrany/pliki.png}{Ekran plików edytora kodu}{fig:files_screen}{\parencite{makieta}}
+Po wciśnięci ikonki trzech kresek lub przesunięciu od lewej strony użytkownikowi zostanie wyświetlony slider z animacją. Wewnątrz tego slidara znajdują się kluczowe elementy związane z kontrolą projektu w tym przycisk wyjścia z projektu w lewym górnym rogu, lista plików pozwalająca ukryć pliki wewnątrz katalogu klikając w nią oraz na samym dole kontrolki pozwalająde przejść do dodatkowych ekranów. Pierwsza kontrolka przenosi użytkownika do ekranu git'a, druga do ekranu podglądu projektu a trzecia do dokumentacji
 
 \MyFigure[0.5\textwidth]{images/ekrany/bledy.png}{Ekran błędów edytora kodu}{fig:error_screen}{\parencite{makieta}}
+Wciśnięcie ciemnego paska z ostrzerzeniam i błędami w kodie prezentuje użytkownika slider (rysunek \ref{fig:error_screen}) z szczegółowym opisem wszystkich błędów oraz linijką na której występują, błędy te są również podkreślane w edytorze kodu (rysunek \ref{fig:code_screen}).
 
 \subsection{Dodawanie plików i folderów}
 \MyFigure[0.5\textwidth]{images/ekrany/pliki_new.png}{Popup pozwalający na dodanie pliku lub folderu}{fig:files_new_screen}{\parencite{makieta}}
+W menu z listą plików użytkownik ma możliwość przytrzymania na nazwe folderu projaktu albo inny folder plików celem otworzenie popup'u dodawania nowego pliku lub folderu (rysunke \ref{fig:files_new_screen}). Użytkownik ma opcje wybranie między dodaniem nowego pliku lub folderu po wybraniu użytkownikowi zostanie przedstawiony odpowiedni jumper (dla pliku rysunek \ref{fig:files_new_file_screen}, dla folderu rysunek \ref{fig:files_new_file_screen})
 
 \MyFigure[0.5\textwidth]{images/ekrany/pliki_new_file.png}{Jumper pozwalający na podanie nazwy nowego pliku}{fig:files_new_file_screen}{\parencite{makieta}}
 
@@ -56,10 +81,11 @@ Jeśli użytkownik zdecyduje się na importowanie istniejącego repozytorium git
 \section{Dodatkowe ekrany}
 
 \MyFigure[0.5\textwidth]{images/ekrany/git.png}{Ekran git}{fig:git_screen}{\parencite{makieta}}
+Ekran git'a (rysunek \ref{fig:git_screen}) pozwala użytkownikowi na dodanie commitów wraz z podaniem nazwy, wypchnięcie ich do zewnętrznego rezpozytorium git lub ściągnięcie z niego zmian. Użytkownik może również wybrać zmiany w których plikach zostaną zawarte w komicie, użycie git'a jest opcjonalne w naszej aplikacji ale dobrze integruje się z funkcją github'a pozwalającą hostować rezpozytoria git jako strony internetowe jak na przykład nasza makieta.
 
 \MyFigure[0.5\textwidth]{images/ekrany/podglad.png}{Ekran podglądu}{fig:preview_screen}{\parencite{makieta}}
+Ekran podglądu pozwala użytkownikowi podejrzeć wygląd strony nad którą pracuje, na dole ekranu znajduje się ikona powrotu oraz link wewnątrz strony na którym użytkownik obecnie się znajduje.
 
 \MyFigure[0.5\textwidth]{images/ekrany/pomoc.png}{Ekran pomocy}{fig:help_screen}{\parencite{makieta}}
-
+W ekranie dokumentacji lub pomocy (rysunek \ref{fig:help_screen}) znajduje się spis wszystkich klas dostępnych z dla użytkownika oraz ich metod. Wybranie którejść z metod kliknięciem otworzy jumper'a z dokumentacją (rysunek \ref{fig:help_doc_screen}) w takiej samej formie jak by się on pojawił na ekrani edytora co ma na zadanie za komunikować użytkownikowi że ta sama dokumentacja jest również dostępna z poziomu edytora i jeśli tego nie potrzbuje nie musi wchodzić do ekranu dokumentacji.
 \MyFigure[0.5\textwidth]{images/ekrany/pomoc_doc.png}{Ekran dokumentacja pomocy}{fig:help_doc_screen}{\parencite{makieta}}
-%do zrobienia dodać pozostałe zdjęcia i inne takie

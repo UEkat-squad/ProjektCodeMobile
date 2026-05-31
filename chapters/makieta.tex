@@ -1,3 +1,4 @@
+% -*- TeX-master: "../main.tex" -*-
 \chapter{Makieta}
 Kod źródłowy makiety \parencite{makieta} pod adresem \parencite{repo}. Została ona stworzona w czystym html'u, css'ie oraz javascript'cie bez używania żadnych frameworków ani AI w celu zachowania pełnej kontroli nad wyglądem makiety oraz animacjami.
 
@@ -69,6 +70,7 @@ Funkcje można wykorzystać do chowania slider'ów oraz jumper'ów zamiast klika
 
 
 \section{Symulacja wibracji urządzenia}
+\label{sec:vibrato}
 Makieta pozwala na symulacje wibracji telefonu po przez potrząśnięcie ekranu w momencie próby zatwierdzenia akcji bez wpisania informacji w polu tekstowym, funkcja ta jest wykorzystywana przy tworzeniu nowego projektu (rysunek \ref{fig:new_proj_screen}), dodawaniu repozytorium git (rysunek \ref{fig:import_git_screen}) oraz przy tworzeniu commit'a (rysunek \ref{fig:git_screen})
 
 Kod który za to odpowiada jest jeszcze prostszy niż kot odpowiadający za przeciąganie.
@@ -103,6 +105,7 @@ function validateText(/**@type {Element}**/inp,fn=()=>{}){
 \end{lstlisting}
 
 \section{Symulacja przytrzymania elementu}
+\label{sec:hold_sym}
 Makieta posiada również możliwość symulacji przytrzymania palcem elementu po przez kliknięcie i przytrzymanie klawisza myszki, jeśli klawisz zostanie podniesiony lub usunięty z guzika przed upływem odpowiedniej ilości czasu akcja zostanie anulowana.
 
 Kod odpowiadający za tą funkcje załączam poniżej.

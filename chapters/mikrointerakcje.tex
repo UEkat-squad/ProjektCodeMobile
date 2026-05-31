@@ -1,4 +1,25 @@
+% -*- TeX-master: "../main.tex" -*-
 \chapter{Mikrointerakcje}
-%To-do opisać mikrointerakcje
+Mikro interakcje budują dobry UX a nasz aplikacja ma najlepszy UX więc dlatego w naszej aplikacji pojawiają się jedynie najdoborniejsze mikrointeracje. Mikro interakcje w naszej aplikacji sprawiają że jest o te 10\% lepsza niż gdyby ich nie miała. W tym rozdziale postaramy się wymienić najważniejsze z nich.
+
+\section{Puste pole tekstowe}
+Nasza aplikacja często prosi użytkownika o podanie nazwy lub innych informacji w polu tekstowym, w wielu przypadkach jest to wymagane a mimo tego użytkownik itak nie wpisuje tych danych. W takiej sytuacji aplikacja wywołuje wibracje telefonu (więcej informacji w podrozdziale \ref{sec:vibrato}) oraz zaznacza wymagane pole czerwoną ramką (rysunek \ref{fig:redframe}).
+\newline\newline
+Ta mikrointerakcja ma na celu zakomunikowane że uzupełnienie zaznaczonego pola jest wymagane a kontynuowanie bez zrobienia tego jest nie możliwe.
 
 \MyFigure[0.5\textwidth]{images/elementy/redframe.png}{Czerwona ramka pojawiająca podczas próbu utworzenia projektu bez nazwy}{fig:redframe}{\parencite{makieta}}
+\section{Wyświetlenie dokumentacji}
+Użytkownik ma możliwość wyświetlenia dokumentacji funkcji w kodzie lub tych podpowiadanych mu nad klawiaturą (rysunek \ref{fig:code_screen}) po przez przytrzymanie elementu kodu lub jednej z opcji auto uzupełnienia. Od dołu ekranu wysuwa mu się jumper zawierający nazwe elementu, jego rodzaj oraz jego krótki opis (rysunek \ref{fig:jum_doc}).
+\newline\newline
+Ta mikro interakcja pozwala użytkownkowi podejrzeć szybko informacja dla których normalnie musiał by opuścić naszą aplikacje, użytkownik może równie szybko schować ten element przesuwając palcem w dół lub klikając na przyciemniony ekran ponad nim.
+\MyFigure[0.5\textwidth]{images/elementy/docs.png}{Jumper z dokumentacją}{fig:jum_doc}{\parencite{makieta}}
+\section{Pojawiające się dodatkowe opcje}
+W ustawieniach aplikacji (opisanych w podrozdziale \ref{sec:settings}) w raz z włączeniem trybu obsługi jedną ręką pojawia się opcja wybranie którą ręką (rysunek \ref{fig:jb_on}), która jest nie widoczna w momęcie kiedy opcja jest odznaczona (rysunek \ref{fig:jb_off}). W ten sposób aplikacja unika pokazywania użytkownikowi opcji które nic nie robią.
+\MyFigure[0.5\textwidth]{images/elementy/jb_on.png}{Tryb obsługi jedną ręką włączony}{fig:jb_on}{\parencite{makieta}}
+\MyFigure[0.5\textwidth]{images/elementy/jb_off.png}{Tryb obsługi jedną ręką wyłączony}{fig:jb_off}{\parencite{makieta}}
+\section{Rozwijanie i zwijanie katalogów}
+W sliderze z listą plików (opisanym w podrozdziale \ref{sec:code}) użytkownik ma możliwość ukrycia (rysunek \ref{fig:files_hide}) oraz pokazazania (rysunek \ref{fig:files_show}) zawartości folderów w projektcie po przez kliknięcie na nie. Po kliknięciu strzałka obok nazwy katalogu obraca się w czasię rzeczywistym w odpowiednim kierunku a lista pojawia się lub znika.
+\newline\newline
+W ten sposób użytkownik ma możliwość ukrycia folderów których zawartość go nie interesuej i skupienia się na cząści swojego projektu która jest naprawde ważna w danym momęcie.
+\MyFigure[0.3\textwidth]{images/elementy/files_show.png}{Pokazana zawartość folderu}{fig:files_show}{\parencite{makieta}}
+\MyFigure[0.3\textwidth]{images/elementy/files_hide.png}{Ukryta zawartość folderu}{fig:files_hide}{\parencite{makieta}}
