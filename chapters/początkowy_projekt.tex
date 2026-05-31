@@ -1,27 +1,26 @@
 % -*- TeX-master: "../main.tex" -*-
 \chapter{Projekt Interfejsu}
-
-Rozpoczęliśmy naszą drogę z projektowaniem od narysowania prymitywnej wersji \ref{fig:init-proj} naszej aplikacji w programie Discord Whiteboard, na podstawie naszych notetek tworzyliśmy później interaktywną makietę naszej aplikacji.
+Prace nad interfejsem rozpoczęliśmy od przygotowania wstępnego szkicu aplikacji \ref{fig:init-proj}, wykorzystując do tego narzędzie Discord Whiteboard.
 \newline\newline
 \MyFigure{images/initial.png}{Początkowy projekt}{fig:init-proj}{Discord Whiteboard}
-Dzięki projektowi wiedzieliśmy jakie ekrany będzie zawierać nasza aplikacja oraz jak będą wyglądały między nimi przejścia. Kluczową rzeczą dla nas była spójność interfejsu użytkownika, istotną zasadą było dla nas że jedną rzecz będzie robił jeden element interfejsu użytkownika.
-\section{Popup}
-Pierwszym elementem który wykorzystywaliśmy był popup, ten element miał proste zastosowanie. Prezentowanie użytkownika z wyborem między predefinowanymi opcjami takimi jak rodzaj konta (rysunek \ref{fig:settings_screen_acc}) czy opcji importu (rysunek \ref{fig:import_screen}).
+Dzięki temu szkicowi dokładnie wiedzieliśmy, jakie ekrany będzie zawierać nasza aplikacja oraz jak będą wyglądały przejścia między nimi. Kluczową kwestią była dla nas spójność interfejsu. Kierowaliśmy się przy tym zasadą: za każdą konkretną czynność powinien odpowiadać wyłącznie jeden dedykowany element na ekranie.
+\section{Pop-up}
+Do zaprezentowania użytkownikowi predefiniowanych opcji wykorzystaliśmy okna typu pop-up. W naszej aplikacji służą one między innymi do wyboru metody importu danych (rysunek \ref{fig:import_screen}) czy określenia rodzaju konta (rysunek \ref{fig:settings_screen_acc}).
 \newline\newline
-Jego zmotyfikowana wersja która nie unosi się w losowym miejscu na ekranie jest również wykorzystywana do grupowania ze sobą powiązanych elementów (rysunek \ref{fig:settings_screen});
-\MyFigure[0.3\textwidth]{images/elementy/popup.png}{Przykład Popup'u w nasze aplikacji.}{fig:popup}{\parencite{makieta}}
+%Jego zmotyfikowana wersja która nie unosi się w losowym miejscu na ekranie jest również wykorzystywana do grupowania ze sobą powiązanych elementów (rysunek \ref{fig:settings_screen});
+%do zmiany/uzgodnienia
+\MyFigure[0.3\textwidth]{images/elementy/popup.png}{Przykład Pop-up'u w naszej aplikacji.}{fig:popup}{\parencite{makieta}}
 \section{Jumper}
-Pod czas projektowania korzystaliśmy sporo z szuflad wysuwających się z dołu ekrany (nazywanych w naszej makiecie jumperami \ref{fig:jumper}). Jest to alternatywa dla popularnych w androidzie okien dialogowych, w naszej opinii bardziej przyjazna dla użytkownika.
+Podczas projektowania interfejsu często wykorzystywaliśmy szuflady wysuwające się z dołu ekranu (nazywanych w naszej makiecie jumperami \ref{fig:jumper}). Jest to alternatywa dla znanych chociażby z systemu Android okien dialogowych, która - w naszej opinii - jest bardziej przyjazna dla użytkownika.
+\MyFigure[0.3\textwidth]{images/elementy/jumper.png}{Przykład jumper'a w naszej aplikacji.}{fig:jumper}{\parencite{makieta}}
+Ten element UI wysuwa się od spodu, delikatnie przyciemniając tło. Wykorzystywany jest przez nas głównie do pobierania dodatkowych danych od użytkownika (rysunek \ref{fig:new_proj_screen}) oraz wyświetlania informacji, którymi jest zainteresowany w danej chwili, takich jak na przykład dokumentacja (rysunek \ref{fig:code_doc_screen}).
 \newline\newline
-Ten element UI wyskakuje od spodu ekranu i przyciemnia nie związany z nim interfejs. Wykorzystywany przez nas głównie do pytanie użytkownika o dodatkowe informacja (rysunek \ref{fig:new_proj_screen}) oraz wyświetlania informacji którymi użytkownik jest zainteresowany na przykład dokumentacje (rysunek \ref{fig:code_doc_screen}).
+Ogromną zaletą tego rozwiązania jest intuicyjny sposób zamykania. Wystarczy, że użytkownik przesunie palcem w dół lub dotknie przyciemnionego obszaru poza panelem. Jest to dobry sposób na uniknięcie pomyłkowego kliknięcia. Co więcej, panel nie zasłania środkowej części ekranu, a jedynie jego dolny fragment. Dzięki temu użytkownik, czytając dokumentację, nie traci z oczu kodu, który właśnie pisał.
 \newline\newline
-Jest to o tyle przyjemniejszy element UI że pozwala na swoje zamknięcie przez przesunięcie palcem w dół lub naciśnięcie przyciemnionego miejsca na ekranie. Co nie tylko jest bardziej wygodne jeśli kliknęliśmy coś przez pomyłkę ale dodatkowo nie przysłania nam środka ekranu tylko jego spód na którym zazwyczaj mniej się dzieje, co może okazać się bardziej przyjazne dla użytkownika podczas czytania dokumentacji i pozwala mu jednocześnie widzieć kod który już napisał.
-\newline\newline
-Ten element jest również przyjaźniejszy dla osób obsługujących aplikacje jedną reką pozwalając im na schowanie go bez potrzeby sięgania po guzik "cancel". Dzięki czemu nasza aplikacja jest bardziej dostępna dla szerszej grupy ludzi a dodatkowo wygląda bardziej nowocześnie niż na przykład Carnets.
-\MyFigure[0.3\textwidth]{images/elementy/jumper.png}{Przykład jumper'a w nasze aplikacji.}{fig:jumper}{\parencite{makieta}}
-
+Rozwiązanie to jest również wygodniejsze dla osób obsługujących aplikację jedną ręką, ponieważ pozwala na zamknięcie okna bez konieczności niewygodnego sięgania palcem do przycisku "anuluj". W efekcie nasza aplikacja jest nie tylko przystępniejsza dla szerszego grona odbiorców, ale również jej prezentacja jest o wiele nowocześniejsza niż konkurencyjne rozwiązania, takie jak na przykład Carnets.
 \section{Slider}
-Ostatni istotny dla naszej aplikacji element UI bardzo podobny do jumpera nazywamy slider \ref{fig:slider}, elementy tego typu są częściej wykorzystywane w aplikacja android'owych. Działa na bardzo podobnych zasada do jumper'a z taką różnicą że wysuwa się od boku ekranu. Wykorzystujemy ten element jako substytut osobnego okna aplikacji pozwalający szybko podejrzeć informacje o projekcie takich jak plików czy błędów w kodzie, bez potrzeby przechodzenia do osobnego okna.
+Ostatnim istotnym elementem interfejsu naszej aplikacji, o działaniu zbliżonym do jumpera, jest tzw. slider \ref{fig:slider}. Elementy tego typu są często spotykane chociażby w aplikacjach na system Android. Slider funkcjonuje niemal identycznie co jumper, z tą różnicą, że wysuwa się z boku ekranu.
+\MyFigure[0.3\textwidth]{images/elementy/slider.png}{Przykład slider'a w naszej aplikacji.}{fig:slider}{\parencite{makieta}}
+Wykorzystujemy ten element jako substytut osobnego okna aplikacji. Pozwala on na szybki podgląd informacji o projekcie bez konieczności opuszczania aktualnego widoku, takich jak struktura plików czy błędy w kodzie.
 \newline\newline
-Dzięki połączeniu tych dwóch elementów użytkownik programując cały czas pozostaje w jednym oknie z którego wychodzi tylko w momencie chęci podejrzenie swojego projektu.
-\MyFigure[0.3\textwidth]{images/elementy/slider.png}{Przykład slider'a w nasze aplikacji.}{fig:slider}{\parencite{makieta}}
+Dzięki połączeniu tych dwóch elementów (slider \ref{fig:slider} i jumper \ref{fig:jumper}), użytkownik programując cały czas pozostaje w jednym oknie edytora. Opuszcza je wyłącznie wtedy, gdy chce sprawdzić stan swojego projektu.
